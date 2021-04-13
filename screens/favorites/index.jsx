@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Film from '../../components/film'
 import {AntDesign} from '@expo/vector-icons';
 import {styles} from './style'
+import {DB_NAME} from "../../constants/env";
 
 const {container, text, trending, button} = styles;
 
@@ -14,7 +15,7 @@ export default function Favorites({navigation}) {
 
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem('@Favorites');
+      const value = await AsyncStorage.getItem(DB_NAME);
       if (value !== null) {
         setFilms(JSON.parse(value));
       }

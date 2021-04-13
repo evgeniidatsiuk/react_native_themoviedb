@@ -8,6 +8,7 @@ import useGenres from '../../hooks/useGenres';
 import Actor from '../../components/actor';
 import Trailer from '../../components/trailer';
 import {styles} from './style'
+import {DB_NAME} from "../../constants/env";
 
 const {container, wrapper, title, text, desc, item, image} = styles;
 
@@ -22,7 +23,7 @@ export default function FilmDetails({ route }) {
   }
 
   const getFavorites = async () => {
-    let favorites = JSON.parse(await AsyncStorage.getItem('@Favorites'));
+    let favorites = JSON.parse(await AsyncStorage.getItem(DB_NAME));
     const sourse = favorites.find((e) => e.id === id);
     if (sourse) {
       setFavorite(true);
@@ -35,7 +36,7 @@ export default function FilmDetails({ route }) {
 
   const storeData = async (film) => {
     try {
-      let favorites = JSON.parse(await AsyncStorage.getItem('@Favorites'));
+      let favorites = JSON.parse(await AsyncStorage.getItem(DB_NAME));
 
       if (favorites) {
         const sourse = favorites.find((e) => e.id === film.id);
@@ -48,7 +49,7 @@ export default function FilmDetails({ route }) {
         favorites = [film];
       }
 
-      await AsyncStorage.setItem('@Favorites', JSON.stringify(favorites));
+      await AsyncStorage.setItem(DB_NAME, JSON.stringify(favorites));
       getFavorites();
     } catch (e) {
       console.log(e);
