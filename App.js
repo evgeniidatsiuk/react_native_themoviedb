@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import {
-  MainScreenNav,
+  HomeScreenNav,
   SearchScreenNav,
   FavoritesScreenNav,
 } from './navigation';
@@ -23,7 +23,7 @@ export default function App() {
         >
           <Tab.Screen
             name="Home"
-            component={MainScreenNav}
+            component={HomeScreenNav}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <AntDesign name="home" size={size} color={color} />

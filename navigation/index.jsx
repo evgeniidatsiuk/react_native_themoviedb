@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import FilmDetails from '../screens/filmDetails';
-import SearchScreen from '../screens/search/SearchScreen';
+import Search from '../screens/search';
 import Home from '../screens/home';
 import Favorites from '../screens/favorites';
 import useFonts from '../hooks/useFonts';
@@ -46,7 +46,7 @@ function SearchScreenNav() {
     <Stack.Navigator>
       <Stack.Screen
         name="Search"
-        component={SearchScreen}
+        component={Search}
         options={{ headerShown: false }}
       />
       <Stack.Screen
