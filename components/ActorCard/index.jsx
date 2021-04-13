@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, Linking, Text, TouchableOpacity, View} from 'react-native';
-import noActor from '../assets/no-actor-photo.jpeg';
+import noActor from '../../assets/no-actor-photo.jpeg';
 
 export default function ActorCard({ actor }) {
   const source =
