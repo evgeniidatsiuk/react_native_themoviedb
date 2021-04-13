@@ -1,14 +1,6 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import React, {useState} from 'react';
+import {Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View,} from 'react-native';
+import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useGetFilmDetails from '../../hooks/useGetFilmDetails';
 import useFonts from '../../hooks/useFonts';
@@ -17,7 +9,7 @@ import Actor from '../../components/actor';
 import Trailer from '../../components/trailer';
 import {styles} from './style'
 
-const { container, wrapper, title, text, desc, item, image } = styles;
+const {container, wrapper, title, text, desc, item, image} = styles;
 
 export default function FilmDetails({ route }) {
   const { id } = route.params;

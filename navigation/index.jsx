@@ -1,14 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import FilmDetailScreen from '../screens/FilmDetailScreen';
-import SearchScreen from '../screens/SearchScreen';
-import MainScreen from '../screens/MainScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
+import FilmDetails from '../screens/filmDetails';
+import SearchScreen from '../screens/search/SearchScreen';
+import Home from '../screens/home';
+import Favorites from '../screens/favorites';
 import useFonts from '../hooks/useFonts';
 
 const Stack = createStackNavigator();
 
-function MainScreenNav() {
+function HomeScreenNav() {
   const { loaded } = useFonts();
 
   if (!loaded) {
@@ -19,12 +19,12 @@ function MainScreenNav() {
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={MainScreen}
+        component={Home}
         options={{ headerShown: false }}
       />
       <Stack.Screen
         name="FilmDetail"
-        component={FilmDetailScreen}
+        component={FilmDetails}
         options={({ route }) => ({
             headerStyle: {backgroundColor: '#fff'},
             headerTintColor: '#181a20',
@@ -39,7 +39,7 @@ function MainScreenNav() {
   );
 }
 
-export { MainScreenNav };
+export { HomeScreenNav };
 
 function SearchScreenNav() {
   return (
@@ -51,7 +51,7 @@ function SearchScreenNav() {
       />
       <Stack.Screen
         name="SearchDetail"
-        component={FilmDetailScreen}
+        component={FilmDetails}
         options={({ route }) => ({
             headerStyle: {backgroundColor: '#fff'},
             headerTintColor: '#181a20',
@@ -73,12 +73,12 @@ function FavoritesScreenNav() {
     <Stack.Navigator>
       <Stack.Screen
         name="Favorites"
-        component={FavoritesScreen}
+        component={Favorites}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="FavoritesDetail"
-        component={FilmDetailScreen}
+        name="FavoriteDetails"
+        component={FilmDetails}
         options={({ route }) => ({
           headerStyle: { backgroundColor: '#181a20' },
           headerTintColor: '#fff',
