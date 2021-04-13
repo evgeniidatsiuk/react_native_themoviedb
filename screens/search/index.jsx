@@ -31,23 +31,25 @@ export default function Search({navigation}) {
         onChangeText={(text) => setSearch(text)}
       />
       {films.length !== 0 ? (
-        <FlatList
-            ref={flatListRef}
-            data={films}
-            renderItem={({item}) => <Film film={item} navigate={navigate} component='SearchDetail'/>}
-            keyExtractor={(item) => item.id.toString()}
-            onEndReachedThreshold={0.9}
-            onEndReached={fetchMore}
-        />
+          <>
+              <FlatList
+                  ref={flatListRef}
+                  data={films}
+                  renderItem={({item}) => <Film film={item} navigate={navigate} component='SearchDetail'/>}
+                  keyExtractor={(item) => item.id.toString()}
+                  onEndReachedThreshold={0.9}
+                  onEndReached={fetchMore}
+              />
+              <Pressable style={button} onPress={() => flatListRef.current.scrollToOffset({offset: 0})}>
+                  <AntDesign name="up" size={20} color="white"/>
+              </Pressable>
+          </>
       ) : (
         <View style={foundContainer}>
           <AntDesign name="search1" size={120} color={'#5d5f64'} />
           <Text style={foundText}>Nothing Found...</Text>
         </View>
       )}
-        <Pressable style={button} onPress={() => flatListRef.current.scrollToOffset({offset: 0})}>
-            <AntDesign name="up" size={20} color="white"/>
-        </Pressable>
     </View>
   );
 }
