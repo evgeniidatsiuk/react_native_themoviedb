@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "baskino",
-    "slug": "baskino",
+    "name": "themoviedb",
+    "slug": "themoviedb",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

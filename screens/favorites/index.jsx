@@ -34,7 +34,7 @@ export default function Favorites({navigation}) {
   return (
     <>
     <View style={container}>
-      <Text style={text}>Baskino</Text>
+      <Text style={text}>TheMovieDB</Text>
       <FlatList
           ref={flatListRef}
           data={films}

@@ -22,7 +22,7 @@ export default function Search({navigation}) {
 
   return (
     <View style={container}>
-      <Text style={text}>Baskino</Text>
+      <Text style={text}>TheMovieDB</Text>
       <TextInput
         style={trending}
         placeholder="Search..."
