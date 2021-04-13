@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { API_URL, API_KEY } from '../constants/api';
+import {useEffect, useState} from 'react';
+import {API_KEY, API_URL} from '../constants/api';
 
 export default function useGetFilmDetails(id) {
   const [details, setDetails] = useState([]);

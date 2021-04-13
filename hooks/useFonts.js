@@ -1,4 +1,4 @@
-import { useFonts as _useFonts } from 'expo-font';
+import {useFonts as _useFonts} from 'expo-font';
 
 export default function useFonts() {
     const [loaded] = _useFonts({

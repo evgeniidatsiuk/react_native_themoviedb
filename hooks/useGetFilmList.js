@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API_URL, API_KEY } from '../constants/api';
-import { useState, useEffect, useCallback } from 'react';
+import {API_KEY, API_URL} from '../constants/api';
+import {useCallback, useEffect, useState} from 'react';
 
 export default function useGetFilmList() {
   const [page, setPage] = useState(1);
