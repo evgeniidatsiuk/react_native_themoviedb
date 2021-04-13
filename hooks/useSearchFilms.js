@@ -33,7 +33,7 @@ export default function useSearchFilms(keywords) {
       });
 
       setShouldFetch(false);
-      setFilms((prevFilms) => [...prevFilms, ...data.results]);
+      setFilms((prevFilms) => [...new Set([...prevFilms, ...data.results])]);
       setPage(page + 1);
     };
 
