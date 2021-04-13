@@ -5,7 +5,7 @@ import {styles} from './style'
 
 const { button, text } = styles;
 
-export default function Index({video}) {
+export default function Trailer({video}) {
   return (
     <TouchableOpacity
       style={button}

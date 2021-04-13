@@ -7,7 +7,7 @@ import {styles} from './style'
 
 const {container, rating, textContainer, genresStyle, image, text} = styles;
 
-export default function Index({film, navigate, component}) {
+export default function Film({film, navigate, component}) {
   useFonts();
 
   let genres
