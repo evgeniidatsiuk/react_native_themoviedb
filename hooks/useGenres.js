@@ -1,10 +1,10 @@
-import genres from '../constants/genres';
+import listOfGenres from '../constants/listOfGenres';
 
 export default function useGenres(ids) {
   let str = '';
 
   ids.map((id, index) => {
-    genres.map((genre) => (id === genre.id ? (str += `${genre.name}`) : null));
+    listOfGenres.map((genre) => (id === genre.id ? (str += `${genre.name}`) : null));
     index !== ids.length - 1 ? (str += ', ') : null;
   });
 

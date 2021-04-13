@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
-import { API_URL, API_KEY } from '../constants/API';
+import { API_URL, API_KEY } from '../constants/api';
 
 export default function useSearchFilms(keywords) {
   const [page, setPage] = useState(1);
