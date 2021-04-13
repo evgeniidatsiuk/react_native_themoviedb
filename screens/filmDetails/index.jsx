@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   Image,
-  StyleSheet,
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
@@ -11,67 +10,16 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useGetFilmDetails from '../hooks/useGetFilmDetails';
-import useFonts from '../hooks/useFonts';
-import useGenres from '../hooks/useGenres';
-import ActorCard from '../components/ActorCard';
-import TrailerCard from '../components/TrailerCard';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  wrapper: {
-    paddingHorizontal: 20,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  title: {
-    color: '#181a20',
-    fontSize: 24,
-    fontFamily: 'Poppins-Bold',
-    marginBottom: 12,
-  },
-  text: {
-    display: 'flex',
-    color: '#181a20',
-    fontSize: 18,
-    fontFamily: 'Poppins-Regular',
-    marginBottom: 12,
-  },
-  desc: {
-    color: '#181a20',
-    fontSize: 18,
-    fontFamily: 'Poppins-Bold',
-    marginBottom: 12,
-    marginRight: 12,
-  },
-  item: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: 200,
-    borderRadius: 36,
-  },
-  image: {
-    width: '100%',
-    height: 300,
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16,
-    marginBottom: 20,
-  },
-});
+import useGetFilmDetails from '../../hooks/useGetFilmDetails';
+import useFonts from '../../hooks/useFonts';
+import useGenres from '../../hooks/useGenres';
+import Actor from '../../components/actor';
+import Trailer from '../../components/trailer';
+import {styles} from './style'
 
 const { container, wrapper, title, text, desc, item, image } = styles;
 
-export default function FilmDetailScreen({ route }) {
+export default function FilmDetails({ route }) {
   const { id } = route.params;
   const { loaded } = useFonts();
   const [details, credits, videos] = useGetFilmDetails(id);
@@ -193,7 +141,7 @@ export default function FilmDetailScreen({ route }) {
               <View style={{ display: 'flex', flexDirection: 'row' }}>
                 {credits.cast
                   ? credits.cast.map((actor) => (
-                      <ActorCard actor={actor} key={actor.id} />
+                      <Actor actor={actor} key={actor.id} />
                     ))
                   : null}
               </View>
@@ -201,7 +149,7 @@ export default function FilmDetailScreen({ route }) {
             <Text style={desc}>Trailers</Text>
             {videos
               ? videos.map((video) => (
-                  <TrailerCard video={video} key={video.id} />
+                  <Trailer video={video} key={video.id} />
                 ))
               : null}
           </View>
