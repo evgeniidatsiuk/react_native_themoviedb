@@ -9,7 +9,9 @@ export default function Actor({actor}) {
             : {
                 uri: `https://image.tmdb.org/t/p/original${actor.profile_path}`,
                 method: 'POST',
-                cache: 'only-if-cached',
+                headers: {
+                    Pragma: 'no-cache',
+                },
             };
 
     return (

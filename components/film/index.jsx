@@ -29,7 +29,9 @@ export default function Film({film, navigate, component}) {
         source={{
           uri: `https://image.tmdb.org/t/p/w500${film.poster_path}`,
           method: 'POST',
-          cache: 'only-if-cached',
+          headers: {
+            Pragma: 'no-cache',
+          },
         }}
         style={image}
       />

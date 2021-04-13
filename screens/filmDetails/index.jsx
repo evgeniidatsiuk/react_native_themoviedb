@@ -68,7 +68,9 @@ export default function FilmDetails({ route }) {
             source={{
               uri: `https://image.tmdb.org/t/p/original${details.backdrop_path}`,
               method: 'POST',
-              cache: 'only-if-cached'
+              headers: {
+                Pragma: 'no-cache',
+              },
             }}
             style={image}
           />
